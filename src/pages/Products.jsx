@@ -22,8 +22,8 @@ const Products = () => {
             </div>
             <div className=' flex flex-col justify-center items-center w-full'>
               <Animation>
-                <div className=' bg-[#90A8AA] h-[38rem] w-[22rem] mt-10 rounded-[30px]'>
-
+                <div className=' bg-[#90A8AA] h-auto w-[22rem] mt-10 rounded-[30px] overflow-hidden object-cover '>
+                  <img className='' src={'/j2.png'} alt="" />
                 </div>
               </Animation>
               <div className='px-5'>
@@ -38,13 +38,13 @@ const Products = () => {
         <div className='  p-10 flex flex-col justify-center items-center md:flex-row md:justify-around gap-4'>
           <div className='  h-[38rem] w-[26rem] mt-10 rounded-[30px] hidden md:block relative '>
             <Animation>
-              <div className='bg-black h-96 w-72 rounded-[30px] absolute top-0'>
-
+              <div className='bg-black h-96 w-72 rounded-[30px] absolute top-0 overflow-hidden'>
+                <img src={'j3.png'} alt="" />
               </div>
             </Animation>
             <Animation>
-              <div className='bg-orange-500 h-80 w-72 rounded-[30px] absolute left-24 top-64 '>
-
+              <div className='bg-orange-500 h-80 w-72 rounded-[30px] absolute left-24 top-64 overflow-hidden '>
+                <img src={'j1.png'} alt="" />
               </div>
             </Animation>
 
@@ -107,8 +107,8 @@ const Products = () => {
             </div>
             <div className=' flex flex-col justify-center items-center w-full'>
               <Animation>
-                <div className=' bg-[#90A8AA] h-[38rem] w-[22rem] mt-10 rounded-[30px]'>
-
+                <div className=' bg-[#90A8AA] h-auto w-[22rem] mt-10 rounded-[30px] overflow-hidden'>
+                  <img className='' src={'/j2.png'} alt="" />
                 </div>
               </Animation>
 
@@ -123,11 +123,11 @@ const Products = () => {
 
         <div className='  p-10 flex flex-col justify-center items-center md:flex-row md:justify-around gap-4'>
           <div className='  h-[38rem] w-[26rem] mt-10 rounded-[30px] hidden md:block relative '>
-            <div className='bg-black h-96 w-72 rounded-[30px] absolute top-0'>
-
+            <div className='bg-black h-96 w-72 rounded-[30px] absolute top-0 overflow-hidden'>
+              <img className='' src={'/j2.png'} alt="" />
             </div>
-            <div className='bg-orange-500 h-80 w-72 rounded-[30px] absolute left-24 top-64 '>
-
+            <div className='bg-orange-500 h-80 w-72 rounded-[30px] absolute left-24 top-64 overflow-hidden '>
+              <img className='' src={'/j2.png'} alt="" />
             </div>
           </div>
           <div className=' md:h-[500px] md:w-[600px] w-[24rem] p-5 '>
@@ -185,8 +185,8 @@ const Products = () => {
             </div>
             <div className=' flex flex-col justify-center items-center w-full'>
               <Animation>
-                <div className=' bg-[#90A8AA] h-[38rem] w-[22rem] mt-10 rounded-[30px]'>
-
+                <div className=' bg-[#90A8AA] h-auto w-[22rem] mt-10 rounded-[30px] overflow-hidden'>
+                  <img className='' src={'/j2.png'} alt="" />
                 </div>
               </Animation>
 
@@ -201,11 +201,11 @@ const Products = () => {
 
         <div className='  p-10 flex flex-col justify-center items-center md:flex-row md:justify-around gap-4'>
           <div className='  h-[38rem] w-[26rem] mt-10 rounded-[30px] hidden md:block relative '>
-            <div className='bg-black h-96 w-72 rounded-[30px] absolute top-0'>
-
+            <div className='bg-black h-96 w-72 rounded-[30px] absolute top-0 overflow-hidden'>
+              <img className='' src={'/j2.png'} alt="" />
             </div>
-            <div className='bg-orange-500 h-80 w-72 rounded-[30px] absolute left-24 top-64 '>
-
+            <div className='bg-orange-500 h-80 w-72 rounded-[30px] absolute left-24 top-64 overflow-hidden '>
+              <img className='' src={'/j2.png'} alt="" />
             </div>
           </div>
           <div className=' md:h-[500px] md:w-[600px] w-[24rem] p-5 '>

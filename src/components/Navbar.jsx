@@ -12,7 +12,7 @@ const Navbar = () => {
         <Link to="/">Shop</Link>
         <Link to="/review">Review</Link>
       </div>
-      <div className='font-extrabold text-4xl sm:text-8xl lg:text-9xl  tracking-wider'>
+      <div className='font-extrabold text-4xl sm:text-8xl lg:text-9xl  tracking-wider pr-10 md:pr-0'>
         MADON
       </div>
       <div className='text-sm tracking-widest flex gap-4'>
