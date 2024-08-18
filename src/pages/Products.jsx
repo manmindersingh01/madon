@@ -15,7 +15,7 @@ const Products = () => {
               </p>
             </div>
             <div className=' flex flex-col justify-center items-center w-full'>
-              <div className=' bg-[#90A8AA] h-[38rem] w-[26rem] mt-10 rounded-[30px]'>
+              <div className=' bg-[#90A8AA] h-[38rem] w-[22rem] mt-10 rounded-[30px]'>
 
               </div>
               <div className='px-5'>
@@ -82,7 +82,7 @@ const Products = () => {
               </p>
             </div>
             <div className=' flex flex-col justify-center items-center w-full'>
-              <div className=' bg-[#90A8AA] h-[38rem] w-[26rem] mt-10 rounded-[30px]'>
+              <div className=' bg-[#90A8AA] h-[38rem] w-[22rem] mt-10 rounded-[30px]'>
 
               </div>
               <div className='px-5'>
@@ -149,7 +149,7 @@ const Products = () => {
               </p>
             </div>
             <div className=' flex flex-col justify-center items-center w-full'>
-              <div className=' bg-[#90A8AA] h-[38rem] w-[26rem] mt-10 rounded-[30px]'>
+              <div className=' bg-[#90A8AA] h-[38rem] w-[22rem] mt-10 rounded-[30px]'>
 
               </div>
               <div className='px-5'>
