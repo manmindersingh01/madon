@@ -4,6 +4,7 @@ import Hero from './Hero';
 import Products from './Products';
 import Crousel from '../components/Crousel';
 import Footer from '../components/Footer';
+import Preloader from '../components/Preloader';
 
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
   return (
     <>
       <div className=' scroll-smooth w-full overflow-hidden'>
+        <Preloader />
         <Hero />
         <Products />
 
