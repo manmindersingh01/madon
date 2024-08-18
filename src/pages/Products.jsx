@@ -36,7 +36,7 @@ const Products = () => {
 
             </div>
           </div>
-          <div className=' md:h-[500px] md:w-[600px] w-[30rem] p-5 '>
+          <div className=' md:h-[500px] md:w-[600px] w-[24rem] p-5 '>
             <h1 className='font-moli text-6xl font-extrabold text-[#313832]'>About</h1>
             <hr className='border-t-2 border-black' />
             <div className='font-bold  text-[#313832]'>
@@ -103,7 +103,7 @@ const Products = () => {
 
             </div>
           </div>
-          <div className=' md:h-[500px] md:w-[600px] w-[30rem] p-5 '>
+          <div className=' md:h-[500px] md:w-[600px] w-[24rem] p-5 '>
             <h1 className='font-moli text-6xl font-extrabold text-[#F9EBCC]'>About</h1>
             <hr className='border-t-2 border-black' />
             <div className='font-bold  text-[#F9EBCC]'>
@@ -170,7 +170,7 @@ const Products = () => {
 
             </div>
           </div>
-          <div className=' md:h-[500px] md:w-[600px] w-[30rem] p-5 '>
+          <div className=' md:h-[500px] md:w-[600px] w-[24rem] p-5 '>
             <h1 className='font-moli text-6xl font-extrabold text-[#F9EBCC]'>About</h1>
             <hr className='border-t-2 border-black' />
             <div className='font-bold  text-[#F9EBCC]'>
