@@ -1,10 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Animation from './Animation'
 
 const Navbar = () => {
   return (
+
     <div className='font-moli flex justify-around w-full mx-w-7xl h-20 items-center text-white sm:pt-10 lg:pt-16 '>
+
       <div className='text-sm tracking-widest flex gap-4'>
+
         <Link to="/">Shop</Link>
         <Link to="/review">Review</Link>
       </div>

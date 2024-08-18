@@ -1,7 +1,11 @@
 import React from 'react'
 import Navbar from '../components/Navbar';
+import Animation from '../components/Animation';
 const Hero = () => {
   return (
+
+
+
     <div className='relative h-[40rem] w-full'>
       <Navbar />
       <div className='absolute top-0 left-0 w-full h-full -z-10'>
@@ -13,6 +17,7 @@ const Hero = () => {
         </h3>
       </div>
     </div>
+
   )
 }
 
