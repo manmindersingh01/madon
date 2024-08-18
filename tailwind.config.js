@@ -9,7 +9,8 @@ export default {
 
       fontFamily: {
         moli: ["Mulish", "sans-serif"],
-        oswald: ["Oswald", "sans-serif"]
+        oswald: ["Oswald", "sans-serif"],
+        am: ["Rubik Mono One", "monospace"]
       }
     },
   },
