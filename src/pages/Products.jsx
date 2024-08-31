@@ -38,12 +38,12 @@ const Products = () => {
         <div className='  p-10 flex flex-col justify-center items-center md:flex-row md:justify-around gap-4'>
           <div className='  h-[38rem] w-[26rem] mt-10 rounded-[30px] hidden md:block relative '>
             <Animation>
-              <div className='bg-black h-96 w-72 rounded-[30px] absolute top-0 overflow-hidden'>
+              <div className=' h-96 w-72 rounded-[30px] absolute top-0 overflow-hidden'>
                 <img src={'j3.png'} alt="" />
               </div>
             </Animation>
             <Animation>
-              <div className='bg-orange-500 h-80 w-72 rounded-[30px] absolute left-24 top-64 overflow-hidden '>
+              <div className='h-80 w-72 rounded-[30px] absolute left-24 top-64 overflow-hidden '>
                 <img src={'j1.png'} alt="" />
               </div>
             </Animation>
@@ -78,11 +78,11 @@ const Products = () => {
             </Animation>
           </div>
           <div className='  h-[38rem] w-[26rem] mt-10 rounded-[30px] md:hidden relative'>
-            <div className='bg-black h-96 w-72 rounded-[30px] absolute top-0'>
-
+            <div className=' h-96 w-72 rounded-[30px] absolute top-0 overflow-hidden'>
+              <img src={'j3.png'} alt="" />
             </div>
-            <div className='bg-orange-500 h-80 w-72 rounded-[30px] absolute left-24 top-64 '>
-
+            <div className=' h-80 w-72 rounded-[30px] absolute left-24 overflow-hidden top-64 '>
+              <img src={'j3.png'} alt="" />
             </div>
           </div>
         </div>
@@ -123,10 +123,10 @@ const Products = () => {
 
         <div className='  p-10 flex flex-col justify-center items-center md:flex-row md:justify-around gap-4'>
           <div className='  h-[38rem] w-[26rem] mt-10 rounded-[30px] hidden md:block relative '>
-            <div className='bg-black h-96 w-72 rounded-[30px] absolute top-0 overflow-hidden'>
+            <div className=' h-96 w-72 rounded-[30px] absolute top-0 overflow-hidden'>
               <img className='' src={'/j2.png'} alt="" />
             </div>
-            <div className='bg-orange-500 h-80 w-72 rounded-[30px] absolute left-24 top-64 overflow-hidden '>
+            <div className=' h-80 w-72 rounded-[30px] absolute left-24 top-64 overflow-hidden '>
               <img className='' src={'/j2.png'} alt="" />
             </div>
           </div>
@@ -156,11 +156,11 @@ const Products = () => {
             </Animation>
           </div>
           <div className='  h-[38rem] w-[26rem] mt-10 rounded-[30px] md:hidden relative'>
-            <div className='bg-black h-96 w-72 rounded-[30px] absolute top-0'>
-
+            <div className='h-96 w-72 rounded-[30px] absolute top-0 overflow-hidden'>
+              <img src={'j3.png'} alt="" />
             </div>
-            <div className='bg-orange-500 h-80 w-72 rounded-[30px] absolute left-24 top-64 '>
-
+            <div className=' h-80 w-72 rounded-[30px] overflow-hidden absolute left-24 top-64 '>
+              <img src={'j3.png'} alt="" />
             </div>
           </div>
         </div>

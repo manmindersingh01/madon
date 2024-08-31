@@ -16,7 +16,7 @@ const Navbar = () => {
         MADON
       </div>
       <div className='text-sm tracking-widest flex gap-4'>
-        <Link to="/review">Cart</Link>
+        <Link to="/cart">Cart</Link>
       </div>
 
 
