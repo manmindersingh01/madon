@@ -41,16 +41,9 @@ const Cart = () => {
     {
       formUrl += `&entry.335807612=${totalPrice}`;
     }
-    // formUrl += `&entry.747256111=${encodeURIComponent(product.name)}`;
 
-    // // Append quantity (single field, update with each product's quantity)
-    // formUrl += `&entry.544642850=${product.quantity}`;
-
-    // // Append price (single field, update with each product's price)
-    // formUrl += `&entry.335807612=${product.price}`;
-    // Open the Google Form with the pre-filled data
     window.open(formUrl);
-    console.log(formUrl);
+    // console.log(formUrl);
 
   };
 
@@ -67,7 +60,7 @@ const Cart = () => {
           cart.items.map((product) => (
             <div key={`${product.id}-${product.size}`} className='w-full bg-neutral-900 h-56 rounded-lg flex overflow-hidden mb-4'>
               <div className='object-cover w-1/2 h-full overflow-hidden'>
-                <img src={product.imageUrl} alt={product.name} className='w-44' />
+                <img src={product.imageUrl} alt={product.name} className='w-auto object-cover' />
               </div>
               <div className='p-3 w-1/2 bg-zinc-950 border border-zinc-900'>
                 <h2 className='text-4xl text-amber-400'>{product.name}</h2>

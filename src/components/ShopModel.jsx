@@ -87,21 +87,21 @@ const ShopModel = ({ isOpen, onClose, product }) => {
       onClick={handleOutsideClick}
       className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center overflow-hidden z-[99999999999999999999]"
     >
-      <div className="bg-black text-white w-96 md:w-[35rem] rounded-lg h-96 flex overflow-hidden">
+      <div className="bg-black text-white w-96 md:w-[35rem] rounded-lg h-72 md:h-96 flex overflow-hidden">
         <div className="h-full w-1/2 overflow-hidden">
           <img src={product.ImageUrl} alt={product.name} className="" />
         </div>
-        <div className="h-full w-1/2 p-4 flex flex-col gap-5">
-          <div className="flex flex-col gap-5">
-            <h1 className="font-bold text-3xl">{product.name}</h1>
-            <p className="text-gray-400">{product.description}</p>
+        <div className="h-full w-1/2 p-4 flex flex-col md:gap-5 gap-2">
+          <div className="flex flex-col ">
+            <h1 className="font-bold text-xl md:text-3xl">{product.name}</h1>
+            <p className="text-gray-400 text-sm ">{product.description}</p>
             <div className="flex gap-2">
               <p className="line-through text-gray-400">{`₹${product.prize}`}</p>
               <p>{`₹${product.discountedPrice}`}</p>
             </div>
             <div>
               <p>-available sizes</p>
-              <div className="flex gap-2 justify-center my-5">
+              <div className="flex gap-2 justify-center my-2">
                 {product.sizes.map((val, idx) => (
                   <SizesButton key={idx} onClick={() => handleSize(val)} size={val} />
                 ))}
@@ -121,11 +121,11 @@ const ShopModel = ({ isOpen, onClose, product }) => {
               </div>
             </div>
           </div>
-          <div className="flex justify-between">
-            <button onClick={handleSubmit} className="bg-green-400 rounded-lg hover:scale-110 active:scale-105 p-2 px-4 text-black">
+          <div className="flex justify-between gap-2 md:mt-20">
+            <button onClick={handleSubmit} className="bg-green-400 rounded-lg hover:scale-110 active:scale-105 p-1 px-2 h-10  text-xs text-black">
               Add to Cart
             </button>
-            <button onClick={handleBuy} className="bg-gray-300 rounded-lg hover:scale-110 active:scale-105 p-2 px-4">
+            <button onClick={handleBuy} className="bg-gray-300 rounded-lg hover:scale-110 active:scale-105 p-2 px-4 h-10 text-xs flex items-center justify-center text-black">
               Buy now
             </button>
           </div>
