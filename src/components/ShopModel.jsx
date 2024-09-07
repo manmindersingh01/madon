@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SizesButton from './sizesButton';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../features/cart/cartSlice';  // Update the path as per your project structure
@@ -10,7 +10,7 @@ const ShopModel = ({ isOpen, onClose, product }) => {
   const [selectedSize, setSelectedSize] = useState('');
   const [quantity, setQuantity] = useState(1);
 
-  const id = product.$id;
+  const id = product ? product["$id"] : "";
 
   if (!isOpen) return null;
 

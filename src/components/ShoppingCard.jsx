@@ -1,5 +1,5 @@
 import React from 'react';
-import SizesButton from './sizesButton';
+import SizesButton from './SizesButton';
 
 const ShoppingCard = ({ image, name, description, price, sizes, onClick }) => {
   const handleSizes = () => {
