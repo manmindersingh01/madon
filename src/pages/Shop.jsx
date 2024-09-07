@@ -12,7 +12,7 @@ const Shop = () => {
     const getPosts = async () => {
       try {
         const posts = await service.getPosts();
-        console.log(posts);  // This logs the full response object
+        // console.log(posts);  
         setData(posts.documents);  // Setting data to the documents array
       } catch (error) {
         console.log("Error in getPosts in Appwrite", error);
@@ -22,7 +22,7 @@ const Shop = () => {
   }, []);
   const handleCardClick = () => {
     if (isAuthenticated) {
-      navigate('/cart')
+      window.location.hash = '#product1';
     } else {
       navigate('/login')
     }

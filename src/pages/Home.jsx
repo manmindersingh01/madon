@@ -17,7 +17,7 @@ const Home = () => {
       try {
         const data = await authService.getCurrentUser();
         dispatch(login(data))
-        console.log("User data:", data);
+        // console.log("User data:", data);
 
       } catch (error) {
         console.error("Error fetching user data:", error);
