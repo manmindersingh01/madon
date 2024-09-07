@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar';
-import Animation from '../components/Animation';
+
 const Hero = () => {
   return (
 

@@ -4,7 +4,7 @@ import Hero from './Hero';
 import Products from './Products';
 import Crousel from '../components/Crousel';
 import Footer from '../components/Footer';
-import Preloader from '../components/Preloader';
+// import Preloader from '../components/Preloader';
 import Shop from './Shop';
 import authService, { AuthService } from '../appwrite/auth';
 import { login } from '../features/auth/authSlice';
