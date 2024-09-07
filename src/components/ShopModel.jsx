@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import SizesButton from './sizesButton';
+import SizesButton from './SizesButton';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../features/cart/cartSlice';  // Update the path as per your project structure
 import { useNavigate } from 'react-router-dom';
