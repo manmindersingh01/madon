@@ -46,7 +46,7 @@ const ShoppingCard = ({ image, name, description, price, sizes, onClick }) => {
               <span class="text-sm text-gray-400 line-through">$499</span>
             </p>
           </div>
-          <p className=' text-xs text-gray-400 pl-6'>availabe sizes - </p>
+          <p className=' text-xs text-gray-400 pl-6'>availabe size - </p>
           <div className=' flex gap-2 justify-center overflow-scroll  '>
             {
               sizes.map((val, idx) => (
