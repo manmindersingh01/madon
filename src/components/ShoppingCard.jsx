@@ -1,65 +1,110 @@
-import React from 'react';
-import SizesButton from './SizesButton';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import SizesButton from "./SizesButton";
 
 const ShoppingCard = ({ image, name, description, price, sizes, onClick }) => {
-  const handleSizes = () => {
+  const [selectedSize, setSelectedSize] = useState(null);
 
-  }
+  const handleSizeClick = (size) => {
+    setSelectedSize(size);
+  };
+
   return (
-    <>
-      <div onClick={onClick} class="group my-10 flex w-60 items-center justify-center max-w-xs flex-col   bg-black p-4">
-        <button class="relative flex h-60 w-52 overflow-hidden" onClick={onClick} >
-          <img class="absolute top-0 right-0 h-full w-full object-contain" src={image} alt="product image" />
-          <div class="absolute bottom-0 mb-4 flex w-full justify-center space-x-4">
-            <button>
-              <div class="h-3 w-3 rounded-full border-2 border-white bg-white"></div>
-            </button>
-            <button>
-              <div class="h-3 w-3 rounded-full border-2 border-white bg-transparent"></div>
-            </button>
-
-            <button>
-              <div class="h-3 w-3 rounded-full border-2 border-white bg-transparent"></div>
-            </button>
-          </div>
-          <div class="absolute -right-16 bottom-0 mr-2 mb-4 space-y-2 transition-all duration-300 group-hover:right-0">
-            <button class="flex h-10 w-10 items-center justify-center bg-gray-900 text-white transition hover:bg-gray-700">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
-              </svg>
-            </button>
-            <button class="flex h-10 w-10 items-center justify-center bg-gray-900 text-white transition hover:bg-gray-700">
-
-              <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-              </svg>
-            </button>
-          </div>
+    <motion.div
+      className="group relative w-full max-w-sm overflow-hidden bg-stone-100"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <motion.div
+        className="relative aspect-[3/4] w-full overflow-hidden"
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.3 }}
+      >
+        <img className="h-full w-full object-cover" src={image} alt={name} />
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white"
+          initial={{ opacity: 0, y: 20 }}
+          whileHover={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <p className="text-sm">{description}</p>
+        </motion.div>
+      </motion.div>
+      <motion.div
+        className="absolute right-2 top-2 z-10"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <button className="rounded-full bg-white/80 p-2 text-stone-800 backdrop-blur-sm transition-all hover:bg-white">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+              clipRule="evenodd"
+            />
+          </svg>
         </button>
-        <div class="mt-2 pb-5  w-full">
-          <a href="#">
-            <h5 class="text-center tracking-tight text-gray-500">{name}</h5>
-          </a>
-          <div class=" flex justify-center">
-            <p>
-              <span class="text-sm mx-1 font-bold text-gray-50">{`₹${price}`}</span>
-              <span class="text-sm text-gray-400 line-through">$499</span>
-            </p>
+      </motion.div>
+      <div className="p-4">
+        <motion.h3
+          className="mb-1 text-lg font-bold text-stone-800"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          {name}
+        </motion.h3>
+        <motion.div
+          className="mb-2 flex items-baseline"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
+          <span className="text-xl font-semibold text-stone-900">₹{price}</span>
+          <span className="ml-2 text-sm text-stone-500 line-through">
+            ₹{Math.round(price * 1.2)}
+          </span>
+          <span className="ml-2 text-xs font-medium text-emerald-700">
+            {Math.round((1 - price / (price * 1.2)) * 100)}% OFF
+          </span>
+        </motion.div>
+        <motion.div
+          className="mb-3"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+        >
+          <p className="mb-1 text-xs font-medium uppercase text-stone-500">
+            Select Size
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {sizes.map((size, idx) => (
+              <SizesButton
+                key={idx}
+                size={size}
+                onClick={() => handleSizeClick(size)}
+                isSelected={selectedSize === size}
+              />
+            ))}
           </div>
-          <p className=' text-xs text-gray-400 pl-6'>availabe size - </p>
-          <div className=' flex gap-2 justify-center overflow-scroll  '>
-            {
-              sizes.map((val, idx) => (
-                <SizesButton onClick={handleSizes} key={idx} size={val} />
-              ))
-            }
-
-          </div>
-        </div>
+        </motion.div>
+        <motion.button
+          onClick={onClick}
+          className="w-full bg-stone-800 py-2 text-center text-sm font-medium uppercase tracking-wider text-white transition-colors hover:bg-stone-700"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          Add to Cart
+        </motion.button>
       </div>
-
-    </>
+    </motion.div>
   );
-}
+};
 
 export default ShoppingCard;

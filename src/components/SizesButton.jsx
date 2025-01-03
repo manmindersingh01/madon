@@ -1,11 +1,22 @@
-import React from 'react'
+import React from "react";
+import { motion } from "framer-motion";
 
-const SizesButton = ({ size, onClick }) => {
+const SizesButton = ({ size, onClick, isSelected }) => {
   return (
-    <button onClick={onClick} className='flex w-10 rounded-lg items-center justify-center h-fit p-2 text-sm  bg-white/40 hover:scale-110 transition-all active:scale-105 text-white'>
+    <motion.button
+      onClick={onClick}
+      className={`flex h-8 w-8 items-center justify-center rounded-sm text-xs font-medium uppercase transition-all
+        ${
+          isSelected
+            ? "bg-stone-800 text-white"
+            : "bg-white text-stone-800 hover:bg-stone-200"
+        } border border-stone-300`}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
       {size}
-    </button>
-  )
-}
+    </motion.button>
+  );
+};
 
-export default SizesButton
+export default SizesButton;
