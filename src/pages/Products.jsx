@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   motion,
   AnimatePresence,
@@ -9,7 +9,6 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import service from "../appwrite/config";
 import Modal from "../components/ShopModel";
-
 import LoadingSkeleton from "../components/LoadingSkeleton";
 import { Sun, Moon, ArrowUp } from "lucide-react";
 import ProductDetails from "../components/productdetails";
@@ -25,7 +24,11 @@ const Products = () => {
   const [darkMode, setDarkMode] = useState(false);
   const isAuthenticated = useSelector((state) => state.auth.status);
   const navigate = useNavigate();
-  const { scrollYProgress } = useScroll();
+  const productsRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: productsRef,
+    offset: ["start start", "end start"],
+  });
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   useEffect(() => {
@@ -67,51 +70,52 @@ const Products = () => {
   }
 
   return (
-    <motion.div
-      className={`relative w-full min-h-screen overflow-hidden ${
-        darkMode ? "bg-gray-900 text-white" : "bg-[#F9EBCC] text-gray-900"
-      }`}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <div className="relative">
       <motion.div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: darkMode
-            ? "radial-gradient(circle, #2C3E50 0%, #1A1A2E 100%)"
-            : "radial-gradient(circle, #F9EBCC 0%, #F0E68C 100%)",
-          y: backgroundY,
-        }}
-      />
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <AnimatePresence>
-          {data.map((item, idx) => (
-            <motion.div
-              key={idx}
-              className="mb-24 last:mb-0"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -50 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-            >
-              <ProductCard
-                item={item}
-                onCardClick={handleCardClick}
-                darkMode={darkMode}
-              />
-              <ProductDetails item={item} darkMode={darkMode} />
-            </motion.div>
-          ))}
-        </AnimatePresence>
-
-        <Modal
-          isOpen={isModalOpen.isOpen}
-          onClose={handleCloseModal}
-          product={isModalOpen.product}
+        ref={productsRef}
+        className="relative min-h-screen overflow-hidden"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <motion.div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: darkMode
+              ? "radial-gradient(circle, rgba(0,0,0,0.8) 0%, rgba(0,0,0,1) 100%), url('/bg1.jpg')"
+              : "radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,1) 100%), url('/bg.jpg')",
+            y: backgroundY,
+          }}
         />
-      </div>
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <AnimatePresence>
+            {data.map((item, idx) => (
+              <motion.div
+                key={idx}
+                className="mb-12 last:mb-0"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -50 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+              >
+                <ProductCard
+                  item={item}
+                  onCardClick={handleCardClick}
+                  darkMode={darkMode}
+                />
+                <ProductDetails item={item} darkMode={darkMode} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+
+          <Modal
+            isOpen={isModalOpen.isOpen}
+            onClose={handleCloseModal}
+            product={isModalOpen.product}
+          />
+        </div>
+      </motion.div>
 
       <motion.button
         className={`fixed bottom-4 right-4 p-3 rounded-full shadow-lg ${
@@ -134,7 +138,7 @@ const Products = () => {
       >
         <ArrowUp size={24} />
       </motion.button>
-    </motion.div>
+    </div>
   );
 };
 

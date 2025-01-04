@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { FaYahoo } from "react-icons/fa6";
 const Navbar = () => {
   const [quantity, setQuantity] = useState(0);
   const linkVariants = {
@@ -14,7 +15,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className="font-moli flex justify-between w-full max-w-7xl mx-auto h-20 items-center text-white px-4 sm:px-6 lg:px-8 sm:pt-10 lg:pt-16"
+      className="font-moli flex justify-between  w-full max-w-7xl mx-auto h-20 items-center text-white bg-black px-4 sm:px-6 lg:px-8 sm:pt-10 lg:pt-2"
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -38,7 +39,7 @@ const Navbar = () => {
       <motion.div className="text-sm tracking-widest flex gap-4">
         <motion.div variants={linkVariants} whileHover="hover">
           <div className=" flex relative">
-            <div className="absolute -top-2 -right-2 bg-red-500 rounded-full w-4 h-4 flex items-center justify-center">
+            <div className="absolute -top-2 -right-2 bg-white text-black rounded-full w-4 h-4 flex items-center justify-center">
               {quantity}
             </div>
             <a href="/cart">Cart</a>
