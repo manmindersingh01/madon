@@ -1,12 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  FaRegTrashCan,
-  FaPlus,
-  FaMinus,
-  FaArrowLeft,
-  // FaShoppingCart,
-} from "react-icons/fa6";
+import { FaRegTrashCan, FaPlus, FaMinus, FaArrowLeft } from "react-icons/fa6";
 import {
   incrementItem,
   decrementItem,
@@ -68,10 +62,12 @@ const Cart = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <h1 className="text-4xl font-bold text-amber-400">Shopping Cart</h1>
+          <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-200">
+            Shopping Cart
+          </h1>
           <motion.button
             onClick={() => navigate("/")}
-            className="text-sm text-red-400 flex items-center gap-2 hover:text-red-300 transition-colors"
+            className="text-sm text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-pink-300 flex items-center gap-2 hover:from-red-300 hover:to-pink-200 transition-all"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -87,14 +83,16 @@ const Cart = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
             >
-              <IconShoppingBag className="text-6xl mx-auto mb-4 text-gray-600" />
-              <h2 className="text-2xl text-gray-400">Your cart is empty</h2>
+              <IconShoppingBag className="text-6xl mx-auto mb-4 text-purple-400" />
+              <h2 className="text-2xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-300">
+                Your cart is empty
+              </h2>
             </motion.div>
           ) : (
             cart.items.map((product) => (
               <motion.div
                 key={`${product.id}-${product.size}`}
-                className="w-full bg-gradient-to-r from-neutral-900 to-zinc-900 rounded-lg flex flex-col md:flex-row overflow-hidden mb-6 shadow-lg"
+                className="w-full bg-gradient-to-r from-purple-800 to-zinc-800 rounded-lg flex flex-col md:flex-row overflow-hidden mb-6 shadow-lg"
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 50 }}
@@ -109,16 +107,18 @@ const Cart = () => {
                 </div>
                 <div className="p-4 md:w-1/2 flex flex-col justify-between">
                   <div>
-                    <h2 className="text-3xl font-bold text-amber-400 mb-2">
+                    <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-200 mb-2">
                       {product.name}
                     </h2>
-                    <p className="text-sm text-gray-400 mb-4">
+                    <p className="text-sm text-purple-200 mb-4">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </p>
                   </div>
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <p className="text-lg">
-                      <span className="text-red-400 mr-2">Quantity:</span>
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-pink-300 mr-2">
+                        Quantity:
+                      </span>
                       {product.quantity}
                     </p>
                     <p className="text-lg">
@@ -135,7 +135,7 @@ const Cart = () => {
                               })
                             )
                           }
-                          className="bg-red-600 p-2 rounded-full"
+                          className="bg-gradient-to-r from-red-600 to-pink-600 p-2 rounded-full"
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.9 }}
                         >
@@ -150,7 +150,7 @@ const Cart = () => {
                               })
                             )
                           }
-                          className="bg-green-600 p-2 rounded-full"
+                          className="bg-gradient-to-r from-green-600 to-teal-600 p-2 rounded-full"
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.9 }}
                         >
@@ -163,7 +163,7 @@ const Cart = () => {
                             removeItem({ id: product.id, size: product.size })
                           )
                         }
-                        className="text-red-500 hover:text-red-400"
+                        className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-pink-300"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                       >
@@ -178,18 +178,20 @@ const Cart = () => {
         </AnimatePresence>
 
         <motion.div
-          className="w-full bg-gradient-to-r from-zinc-800 to-neutral-800 my-6 p-4 rounded-lg flex justify-between items-center"
+          className="w-full bg-gradient-to-r from-purple-800 to-zinc-800 my-6 p-4 rounded-lg flex justify-between items-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
         >
           <p className="text-xl">
             Total price:{" "}
-            <span className="font-bold text-amber-400">₹{cart.totalPrice}</span>
+            <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-200">
+              ₹{cart.totalPrice}
+            </span>
           </p>
           <p className="text-xl">
             Total quantity:{" "}
-            <span className="font-bold text-amber-400">
+            <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-200">
               {cart.totalQuantity}
             </span>
           </p>
@@ -198,7 +200,7 @@ const Cart = () => {
         <div className="flex flex-wrap justify-between gap-4 mt-6">
           <motion.button
             onClick={handleCheckout}
-            className="bg-purple-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-600 transition-colors"
+            className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-full font-semibold hover:from-purple-500 hover:to-pink-500 transition-all"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             disabled={cart.items.length === 0}
@@ -207,7 +209,7 @@ const Cart = () => {
           </motion.button>
           <motion.button
             onClick={() => navigate("/")}
-            className="bg-blue-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-600 transition-colors"
+            className="bg-gradient-to-r from-blue-600 to-teal-600 text-white px-6 py-3 rounded-full font-semibold hover:from-blue-500 hover:to-teal-500 transition-all"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -215,7 +217,7 @@ const Cart = () => {
           </motion.button>
           <motion.button
             onClick={handleClearCart}
-            className="bg-red-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-red-600 transition-colors"
+            className="bg-gradient-to-r from-red-600 to-pink-600 text-white px-6 py-3 rounded-full font-semibold hover:from-red-500 hover:to-pink-500 transition-all"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             disabled={cart.items.length === 0}
