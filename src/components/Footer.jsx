@@ -1,40 +1,99 @@
-import React from 'react'
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import TestimonialWall from "./TestimonialWall";
+import ContactModal from "./ContactModal";
+import SocialLinks from "./SocialLinks";
 
 const Footer = () => {
-  return (
-    <section className="dark:bg-[#F9EACB] dark:text-[#313832]">
-      <div className="container flex flex-col items-center p-4 mx-auto md:p-8">
-        <h1 className="text-3xl font-bold leading-none text-center sm:text-4xl">Help Center</h1>
-        <div className="relative mt-6 mb-12">
-          <span className="absolute inset-y-0 flex items-center pl-2 mx-auto">
-            <button type="submit" title="Search" className="p-1 focus:outline-none focus:ring">
-              <svg fill="currentColor" viewBox="0 0 512 512" className="w-4 h-4 dark:text-gray-800">
-                <path d="M479.6,399.716l-81.084-81.084-62.368-25.767A175.014,175.014,0,0,0,368,192c0-97.047-78.953-176-176-176S16,94.953,16,192,94.953,368,192,368a175.034,175.034,0,0,0,101.619-32.377l25.7,62.2L400.4,478.911a56,56,0,1,0,79.2-79.195ZM48,192c0-79.4,64.6-144,144-144s144,64.6,144,144S271.4,336,192,336,48,271.4,48,192ZM456.971,456.284a24.028,24.028,0,0,1-33.942,0l-76.572-76.572-23.894-57.835L380.4,345.771l76.573,76.572A24.028,24.028,0,0,1,456.971,456.284Z"></path>
-              </svg>
-            </button>
-          </span>
-          <input type="search" name="Search" placeholder="Search..." className="w-full py-3 pl-12 text-sm rounded-full sm:w-96 focus:outline-none dark:bg-gray-100 dark focus:dark:bg-gray-50" />
-        </div>
-        <div className="flex flex-col w-full divide-y sm:flex-row sm:divide-y-0 sm:divide-x sm:px-8 lg:px-12 xl:px-32 divide-[#313832]">
-          <div className="flex flex-col w-full divide-y divide-[#313832]">
-            <a rel="noopener noreferrer" href="#" className="flex items-center justify-center p-4 sm:py-8 lg:py-12">Billing</a>
-            <a rel="noopener noreferrer" href="#" className="flex items-center justify-center p-4 sm:py-8 lg:py-12">Support</a>
-            <a rel="noopener noreferrer" href="#" className="flex items-center justify-center p-4 sm:py-8 lg:py-12">Account</a>
-          </div>
-          <div className="flex flex-col w-full divide-y divide-[#313832]">
-            <a rel="noopener noreferrer" href="#" className="flex items-center justify-center p-4 sm:py-8 lg:py-12">Features</a>
-            <a rel="noopener noreferrer" href="#" className="flex items-center justify-center p-4 sm:py-8 lg:py-12">Contact us</a>
-            <a rel="noopener noreferrer" href="#" className="flex items-center justify-center p-4 sm:py-8 lg:py-12">My orders</a>
-          </div>
-          <div className="hidden w-full divide-y sm:flex-col sm:flex divide-[#313832]">
-            <a rel="noopener noreferrer" href="#" className="flex items-center justify-center p-4 sm:py-8 lg:py-12">Enterprise</a>
-            <a rel="noopener noreferrer" href="#" className="flex items-center justify-center p-4 sm:py-8 lg:py-12">Privacy</a>
-            <a rel="noopener noreferrer" href="#" className="flex items-center justify-center p-4 sm:py-8 lg:py-12">Developers</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-export default Footer
+  return (
+    <footer className="bg-[#F9EACB] text-[#313832] py-16 relative overflow-hidden">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl font-bold mb-8">What Our Customers Say</h2>
+          <TestimonialWall />
+        </motion.div>
+
+        <div className="text-center mb-12">
+          <motion.button
+            onClick={() => setIsModalOpen(true)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-[#313832] text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-opacity-90 transition-colors"
+          >
+            Contact Us
+          </motion.button>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <h3 className="text-2xl font-semibold mb-4 text-center">
+            Quick Links
+          </h3>
+          <ul className="flex flex-wrap justify-center gap-4 mb-8">
+            <li>
+              <a href="#" className="hover:underline">
+                About Us
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:underline">
+                FAQ
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:underline">
+                Shipping & Returns
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:underline">
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:underline">
+                Terms of Service
+              </a>
+            </li>
+          </ul>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="text-center"
+        >
+          <h3 className="text-2xl font-semibold mb-4">Connect With Us</h3>
+          <SocialLinks />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="text-center mt-12"
+        >
+          <p>&copy; 2023 MADON. All rights reserved.</p>
+          <p className="mt-2">Thank you for visiting our site!</p>
+        </motion.div>
+      </div>
+
+      <AnimatePresence>
+        {isModalOpen && <ContactModal onClose={() => setIsModalOpen(false)} />}
+      </AnimatePresence>
+    </footer>
+  );
+};
+
+export default Footer;

@@ -14,7 +14,6 @@ const ShopModel = ({ isOpen, onClose, product }) => {
   const id = product ? product["$id"] : "";
 
   if (!isOpen) return null;
-
   const handleSize = (val) => {
     setSelectedSize(val);
   };

@@ -1,32 +1,39 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  items: [],  // [{ id, name, size, quantity, price, imageUrl }]
+  items: [], // [{ id, name, size, quantity, price, imageUrl }]
   totalQuantity: 0,
   totalPrice: 0,
 };
 
 const cartSlice = createSlice({
-  name: 'cart',
+  name: "cart",
   initialState,
   reducers: {
     addItem(state, action) {
       const { id, name, size, quantity, price, imageUrl } = action.payload;
 
-      // Ensure price is converted to a number if it's a string
       const priceAsNumber = parseFloat(price);
 
-      const existingItemIndex = state.items.findIndex(item => item.id === id && item.size === size);
+      const existingItemIndex = state.items.findIndex(
+        (item) => item.id === id && item.size === size
+      );
 
       if (existingItemIndex >= 0) {
         // Update quantity if item already exists
         state.items[existingItemIndex].quantity += quantity;
         console.log("adding in previous");
-
       } else {
         // Add new item
         console.log("adding new");
-        state.items.push({ id, name, size, quantity, price: priceAsNumber, imageUrl });
+        state.items.push({
+          id,
+          name,
+          size,
+          quantity,
+          price: priceAsNumber,
+          imageUrl,
+        });
       }
 
       state.totalQuantity += quantity;
@@ -34,7 +41,9 @@ const cartSlice = createSlice({
     },
     removeItem(state, action) {
       const { id, size } = action.payload;
-      const existingItemIndex = state.items.findIndex(item => item.id === id && item.size === size);
+      const existingItemIndex = state.items.findIndex(
+        (item) => item.id === id && item.size === size
+      );
 
       if (existingItemIndex >= 0) {
         const item = state.items[existingItemIndex];
@@ -47,7 +56,9 @@ const cartSlice = createSlice({
     },
     incrementItem(state, action) {
       const { id, size } = action.payload;
-      const existingItemIndex = state.items.findIndex(item => item.id === id && item.size === size);
+      const existingItemIndex = state.items.findIndex(
+        (item) => item.id === id && item.size === size
+      );
 
       if (existingItemIndex >= 0) {
         state.items[existingItemIndex].quantity += 1;
@@ -57,9 +68,14 @@ const cartSlice = createSlice({
     },
     decrementItem(state, action) {
       const { id, size } = action.payload;
-      const existingItemIndex = state.items.findIndex(item => item.id === id && item.size === size);
+      const existingItemIndex = state.items.findIndex(
+        (item) => item.id === id && item.size === size
+      );
 
-      if (existingItemIndex >= 0 && state.items[existingItemIndex].quantity > 1) {
+      if (
+        existingItemIndex >= 0 &&
+        state.items[existingItemIndex].quantity > 1
+      ) {
         state.items[existingItemIndex].quantity -= 1;
         state.totalQuantity -= 1;
         state.totalPrice -= state.items[existingItemIndex].price;
@@ -73,5 +89,6 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItem, removeItem, incrementItem, decrementItem, clearCart } = cartSlice.actions;
+export const { addItem, removeItem, incrementItem, decrementItem, clearCart } =
+  cartSlice.actions;
 export default cartSlice.reducer;

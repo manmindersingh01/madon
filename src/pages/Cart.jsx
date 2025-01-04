@@ -1,6 +1,13 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { FaRegTrashCan, FaPlus, FaMinus, FaArrowLeft } from "react-icons/fa6";
+import {
+  FaRegTrashCan,
+  FaPlus,
+  FaMinus,
+  FaArrowLeft,
+  FaTrashCan,
+  FaTrash,
+} from "react-icons/fa6";
 import {
   incrementItem,
   decrementItem,
@@ -114,17 +121,26 @@ const Cart = () => {
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </p>
                   </div>
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <p className="text-lg">
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-pink-300 mr-2">
-                        Quantity:
-                      </span>
-                      {product.quantity}
-                    </p>
-                    <p className="text-lg">
-                      Price: ₹{product.price * product.quantity}
-                    </p>
-                    <div className="flex items-center gap-4">
+                  <div className="flex flex-col flex-wrap items-center justify-between gap-2">
+                    <div className=" flex justify-between bg-black p-2 rounded-lg w-full gap-4 flex-wrap">
+                      <p className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-pink-300 mr-2">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-pink-300 mr-2">
+                          Quantity:
+                        </span>
+                        {product.quantity}
+                      </p>
+                      <p className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-pink-300 mr-2">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-pink-300 mr-2">
+                          Size:
+                        </span>
+                        {product.size}
+                      </p>
+                      <p className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-pink-300 mr-2">
+                        Price: ₹{product.price * product.quantity}
+                      </p>
+                    </div>
+
+                    <div className="flex items-center gap-4 px-1">
                       <div className="flex items-center gap-2">
                         <motion.button
                           onClick={() =>
@@ -163,11 +179,12 @@ const Cart = () => {
                             removeItem({ id: product.id, size: product.size })
                           )
                         }
-                        className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-pink-300"
+                        className=" bg-gradient-to-r p-2 rounded-full text-black from-red-400 to-pink-300"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                       >
-                        <FaRegTrashCan size={20} />
+                        {" "}
+                        <FaTrash />
                       </motion.button>
                     </div>
                   </div>

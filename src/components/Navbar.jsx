@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Navbar = () => {
+  const [quantity, setQuantity] = useState(0);
   const linkVariants = {
     hover: { scale: 1.1, transition: { duration: 0.2 } },
   };
+  const cart = useSelector((state) => state.cart);
+  useEffect(() => {
+    setQuantity(cart.totalQuantity);
+  }, [quantity]);
 
   return (
     <motion.nav
@@ -31,7 +37,12 @@ const Navbar = () => {
       </motion.div>
       <motion.div className="text-sm tracking-widest flex gap-4">
         <motion.div variants={linkVariants} whileHover="hover">
-          <a href="/cart">Cart</a>
+          <div className=" flex relative">
+            <div className="absolute -top-2 -right-2 bg-red-500 rounded-full w-4 h-4 flex items-center justify-center">
+              {quantity}
+            </div>
+            <a href="/cart">Cart</a>
+          </div>
         </motion.div>
       </motion.div>
     </motion.nav>
